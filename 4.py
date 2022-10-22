@@ -30,41 +30,102 @@
 # lst = list(map(int, input('Введите числа через пробел ').split()))
 
 #Напишите программу которая покажет наименьшее и наибольшее число
-# print(max(nums))
-# print(min(nums))
-# # def maximum_minimum_number_lst(lst):
-# i_max = lst[0]
-# i_min = lst[0]
+# print(max(lst))
+# print(min(lst))
+# def maximum_minimum_number_lst(lst):
+#     i_Max = lst[0]
+#     i_Min = lst[0]
 # for i in range(1, len(lst)):
-#     if lst[i] > i_max:
-#         i_max = lst[i]
-#     if lst[i] < i_min:
-#         i_min = lst[i]
-#         print(f'Максимальное число: {i_max}')
-#         print(f'Минимальное число: {i_min}')
+#     if lst[i] > i_Max:
+#         i_Max = lst[i]
+#     if lst[i] < i_Min:
+#         i_Min = lst[i]
+#         print(f'Максимальное число: {i_Max}')
+#         print(f'Минимальное число: {i_Min}')
 
 # 2. Найдите корни квадратного уровнения Ax2 + Bx+C = 0 двумя способами
 #    1. С помощью математических формул нахождения корней квадратного уровнения
 #    2. С помощью дополнительных библиотек Python
-def quadratic_equation(a, b, c):
-    d = b ** 2 - 4 * a * c
-    if d < 0:
-        print('действительных корней нет')
-    elif d ==0:
-        res =-b / (2 *a)
-        print([res])
-    else:
-        res1 = (-b + d ** 0.5) / (2 * a)
-        res2 = (-b - d ** 0.5) / (2 * a)
-        print([res1, res2])
-def quadratic_equation_sympy(a, b, c):
-    x = sympy.Symbol('x')
-    n = sympy.solve(a * x ** 2 + b *x + c, x)     
-    print(n)   
-#2
-
+# def quadratic_equation(a, b, c):
+#     d = b ** 2 - 4 * a * c
+#     if d < 0:
+#         print('действительных корней нет')
+#     elif d ==0:
+#         res =-b / (2 *a)
+#         print([res])
+#     else:
+#         res1 = (-b + d ** 0.5) / (2 * a)
+#         res2 = (-b - d ** 0.5) / (2 * a)
+#         print([res1, res2])
+# def quadratic_equation_sympy(a, b, c):
+#     x = sympy.Symbol('x')
+#     n = sympy.solve(a * x ** 2 + b *x + c, x)     
+#     print(n)   
 
 
 # 3. Задайте два числа. Напишите программу которая найдёт НОК
 # (наименьшее общее кратное) этих двух чисел.
 
+# num_1 = int(input('Введите число: '))
+# num_2 = int(input('Введите число: '))
+# i = min(num_1, num_2)
+# while True:
+#     if i % num_1 == 0 and i % num_2 == 0:
+#         break
+#     i += 1
+# print(i)    
+
+# Домашнее задание
+
+# Вычислить число Пи c заданной точностью d
+# Пример:
+# - при $d = 0.001, π = 3.141.$    $10^{-1} ≤ d ≤10^{-10}$
+
+# Задайте натуральное число N. Напишите программу,
+# которая составит список простых множителей числа N.
+# import math 
+# def prime_factors(N): 
+#     while N % 2 == 0: 
+#         print(2, end = ' ') 
+#         N = N / 2 
+#     for i in range(3, int(math.sqrt(N)) + 1, 2): 
+#          while N % i == 0: 
+#             print(i, end = ' ') 
+#             N = N / i 
+#     if N > 2: 
+#         print(N) 
+# N = int(input('Введите число: ')) 
+# prime_factors(N)
+
+
+
+# Задайте последовательность чисел. 
+# Напишите программу, которая выведет список неповторяющихся элементов
+# исходной последовательности.
+
+from enum import unique
+import numbers
+
+numbers = [20, 20, 30, 30, 40]
+
+def get_unique_numbers(numbers):
+    unique = []
+
+    for number in numbers:
+        if number in unique:
+            continue
+        else:
+            unique.append(number)        
+    return unique
+
+print(get_unique_numbers(numbers))
+
+# Задана натуральная степень k. 
+# Сформировать случайным образом список коэффициентов (значения от 0 до 100)
+# многочлена и записать в файл многочлен степени k.
+# Пример:
+# - k=2 => 2*x² + 4*x + 5 = 0 или x² + 5 = 0 или 10*x² = 0
+
+
+# Даны два файла, в каждом из которых находится запись многочлена.
+# Задача - сформировать файл, содержащий сумму многочленов.
