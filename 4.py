@@ -81,8 +81,23 @@
 # Пример:
 # - при $d = 0.001, π = 3.141.$    $10^{-1} ≤ d ≤10^{-10}$
 
+import math
+x = 0
+y = 0
+for t in range(1,10000001):
+    if t % 2 != 0:
+        y += 1
+        if y % 2 != 0:
+            x += 1/t
+        else:
+            x -= 1/t
+    else:
+        pass
+print(x*4) 
+
 # Задайте натуральное число N. Напишите программу,
 # которая составит список простых множителей числа N.
+
 # import math 
 # def prime_factors(N): 
 #     while N % 2 == 0: 
@@ -103,22 +118,21 @@
 # Напишите программу, которая выведет список неповторяющихся элементов
 # исходной последовательности.
 
-from enum import unique
-import numbers
+# import numbers
 
-numbers = [20, 20, 30, 30, 40]
+# numbers = [20, 20, 30, 30, 40]
 
-def get_unique_numbers(numbers):
-    unique = []
+# def get_unique_numbers(numbers):
+#     unique = []
 
-    for number in numbers:
-        if number in unique:
-            continue
-        else:
-            unique.append(number)        
-    return unique
+#     for number in numbers:
+#         if number in unique:
+#             continue
+#         else:
+#             unique.append(number)        
+#     return unique
 
-print(get_unique_numbers(numbers))
+# print(get_unique_numbers(numbers))
 
 # Задана натуральная степень k. 
 # Сформировать случайным образом список коэффициентов (значения от 0 до 100)
