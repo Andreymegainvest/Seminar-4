@@ -75,11 +75,11 @@
 #     i += 1
 # print(i)    
 
-# Домашнее задание
+Домашнее задание
 
-# Вычислить число Пи c заданной точностью d
-# Пример:
-# - при $d = 0.001, π = 3.141.$    $10^{-1} ≤ d ≤10^{-10}$
+Вычислить число Пи c заданной точностью d
+Пример:
+- при $d = 0.001, π = 3.141.$    $10^{-1} ≤ d ≤10^{-10}$
 
 import math
 x = 0
@@ -95,58 +95,99 @@ for t in range(1,10000001):
         pass
 print(round((x*4), 3)) 
 
-# Задайте натуральное число N. Напишите программу,
-# которая составит список простых множителей числа N.
+Задайте натуральное число N. Напишите программу,
+которая составит список простых множителей числа N.
 
-# import math 
-# def prime_factors(N): 
-#     while N % 2 == 0: 
-#         print(2, end = ' ') 
-#         N = N / 2 
-#     for i in range(3, int(math.sqrt(N)) + 1, 2): 
-#          while N % i == 0: 
-#             print(i, end = ' ') 
-#             N = N / i 
-#     if N > 2: 
-#         print(N) 
-# N = int(input('Введите число: ')) 
-# prime_factors(N)
-
-
-
-# Задайте последовательность чисел. 
-# Напишите программу, которая выведет список неповторяющихся элементов
-# исходной последовательности.
-
-#numbers = [20, 20, 30, 30, 40]
-# lst = []
-# for i in numbers:
-#     n = 0
-#     for x in numbers:
-#         if i == x:
-#             n += 1
-#     if n == 1:
-#         lst.append(i)
-# print(lst)                
-# # 2 Вариант
-# from random import random
-# data = []
-# for i in range(10):
-#     data.append(int(random()*10))
-# print(data)
-
-# lst = []
-# for i in data:
-#     if data.count(i) == 1:# выявляет колличество элементов в списке
-#         lst.append(i)
-# print(lst)        
-
-# Задана натуральная степень k. 
-# Сформировать случайным образом список коэффициентов (значения от 0 до 100)
-# многочлена и записать в файл многочлен степени k.
-# Пример:
-# - k=2 => 2*x² + 4*x + 5 = 0 или x² + 5 = 0 или 10*x² = 0
+import math 
+def prime_factors(N): 
+    while N % 2 == 0: 
+        print(2, end = ' ') 
+        N = N / 2 
+    for i in range(3, int(math.sqrt(N)) + 1, 2): 
+         while N % i == 0: 
+            print(i, end = ' ') 
+            N = N / i 
+    if N > 2: 
+        print(N) 
+N = int(input('Введите число: ')) 
+prime_factors(N)
 
 
-# Даны два файла, в каждом из которых находится запись многочлена.
-# Задача - сформировать файл, содержащий сумму многочленов.
+
+Задайте последовательность чисел. 
+Напишите программу, которая выведет список неповторяющихся элементов
+исходной последовательности.
+
+numbers = [20, 20, 30, 30, 40]
+lst = []
+for i in numbers:
+    n = 0
+    for x in numbers:
+        if i == x:
+            n += 1
+    if n == 1:
+        lst.append(i)
+print(lst)                
+# 2 Вариант
+from random import random
+data = []
+for i in range(10):
+    data.append(int(random()*10))
+print(data)
+
+lst = []
+for i in data:
+    if data.count(i) == 1:# выявляет колличество элементов в списке
+        lst.append(i)
+print(lst)        
+
+Задана натуральная степень k. 
+Сформировать случайным образом список коэффициентов (значения от 0 до 100)
+многочлена и записать в файл многочлен степени k.
+Пример:
+- k=2 => 2*x² + 4*x + 5 = 0 или x² + 5 = 0 или 10*x² = 0
+
+import random
+
+
+def write_file(st):
+    with open('4.txt', 'w') as data:
+        data.write(st)
+
+
+def rnd():
+    return random.randint(0,101)
+
+
+def create_mn(k):
+    lst = [rnd() for i in range(k+1)]
+    return lst
+    
+
+def create_str(sp):
+    lst= sp[::-1]
+    wr = ''
+    if len(lst) < 1:
+        wr = 'x = 0'
+    else:
+        for i in range(len(lst)):
+            if i != len(lst) - 1 and lst[i] != 0 and i != len(lst) - 2:
+                wr += f'{lst[i]}x^{len(lst)-i-1}'
+                if lst[i+1] != 0:
+                    wr += ' + '
+            elif i == len(lst) - 2 and lst[i] != 0:
+                wr += f'{lst[i]}x'
+                if lst[i+1] != 0:
+                    wr += ' + '
+            elif i == len(lst) - 1 and lst[i] != 0:
+                wr += f'{lst[i]} = 0'
+            elif i == len(lst) - 1 and lst[i] == 0:
+                wr += ' = 0'
+    return wr
+
+k = int(input("Введите натуральную степень k = "))
+koef = create_mn(k)
+write_file(create_str(koef))
+
+Даны два файла, в каждом из которых находится запись многочлена.
+Задача - сформировать файл, содержащий сумму многочленов.
