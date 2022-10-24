@@ -81,19 +81,19 @@
 # Пример:
 # - при $d = 0.001, π = 3.141.$    $10^{-1} ≤ d ≤10^{-10}$
 
-import math
-x = 0
-y = 0
-for t in range(1,10000001):
-    if t % 2 != 0:
-        y += 1
-        if y % 2 != 0:
-            x += 1/t
-        else:
-            x -= 1/t
-    else:
-        pass
-print(x*4) 
+# import math
+# x = 0
+# y = 0
+# for t in range(1,10000001):
+#     if t % 2 != 0:
+#         y += 1
+#         if y % 2 != 0:
+#             x += 1/t
+#         else:
+#             x -= 1/t
+#     else:
+#         pass
+# print(toFixed((x*4), 3)) 
 
 # Задайте натуральное число N. Напишите программу,
 # которая составит список простых множителей числа N.
@@ -118,21 +118,28 @@ print(x*4)
 # Напишите программу, которая выведет список неповторяющихся элементов
 # исходной последовательности.
 
-# import numbers
+#numbers = [20, 20, 30, 30, 40]
+# lst = []
+# for i in numbers:
+#     n = 0
+#     for x in numbers:
+#         if i == x:
+#             n += 1
+#     if n == 1:
+#         lst.append(i)
+# print(lst)                
+# # 2 Вариант
+# from random import random
+# data = []
+# for i in range(10):
+#     data.append(int(random()*10))
+# print(data)
 
-# numbers = [20, 20, 30, 30, 40]
-
-# def get_unique_numbers(numbers):
-#     unique = []
-
-#     for number in numbers:
-#         if number in unique:
-#             continue
-#         else:
-#             unique.append(number)        
-#     return unique
-
-# print(get_unique_numbers(numbers))
+# lst = []
+# for i in data:
+#     if data.count(i) == 1:# выявляет колличество элементов в списке
+#         lst.append(i)
+# print(lst)        
 
 # Задана натуральная степень k. 
 # Сформировать случайным образом список коэффициентов (значения от 0 до 100)
